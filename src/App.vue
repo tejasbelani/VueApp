@@ -1,5 +1,8 @@
 <script>
 import HelloWorldDemo from './components/HelloWorldDemo.vue';
+
+import AppSignUpVue from './components/AppSignUp.vue';
+
 import {reactive} from 'vue'
 export default{
   setup()
@@ -8,7 +11,8 @@ export default{
     return{info}
   },
   components:{
-    HelloWorldDemo
+    HelloWorldDemo,
+    AppSignUpVue
   },
   data() {
     return {
@@ -50,16 +54,31 @@ export default{
 
 <template>
 
-  Count{{ splist }}
+
+
+
+  <AppSignUpVue></AppSignUpVue>
+
+  
+
+ 
+
+
+
+
+  <!-- Count{{ splist }} -->
+
+ 
+
   <!-- {{ info.count }} -->
-<HelloWorldDemo @notify="info1($event)" message="Good Morning" :data="users"></HelloWorldDemo>
+<!-- <HelloWorldDemo @notify="info1($event)" message="Good Morning" :data="users"></HelloWorldDemo>
 
   <h1>Inactive USers{{CountInactive}}</h1>
   Enter Name <input type="text" v-model="emp.name"/>
   Enter Address <input type="text" v-model="emp.address"/>
 Active  <input type="radio" value="active" v-model="emp.status"/>
 InActive <input type="radio" value="inactive" v-model="emp.status"/>
-<button @click="demo()">Add employee</button>
+<button @click="demo()">Add employee</button> -->
 
 </template>
 
