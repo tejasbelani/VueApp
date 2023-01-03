@@ -14,24 +14,28 @@
     
     <!-- Email input -->
     <div class="form-outline mb-4 col-md-3">
-    <input type="text" id="form2Example1" placeholder="First Name" v-model="firstname" class="form-control" />
+    <input type="text" id="form2Example1" placeholder="First Name" maxlength="20" v-model="firstname" class="form-control" />
     </div>
     
     <!-- Password input -->
     <div class="form-outline mb-4 col-md-3">
-    <input type="text" id="form2Example2" placeholder="Last Name" v-model="lastname" class="form-control" />
+    <input type="text" id="form2Example2" placeholder="Last Name" maxlength="20" v-model="lastname" class="form-control" />
     </div>
     
     <div class="form-outline mb-4 col-md-3">
-    <input type="text" rows="4" cols="10" id="form2Example2" placeholder="Address" v-model="address" class="form-control" />
+    <input type="text" rows="4" cols="10" id="form2Example2" maxlength="50" placeholder="Address" v-model="address" class="form-control" />
     </div>
     
     <div class="form-outline mb-4 col-md-3">
-    <input type="text" id="form2Example2" placeholder="PAN Number" v-model="pannumber" class="form-control" />
+    <input type="text" id="form2Example2" placeholder="PAN Number" maxlength="10" v-model="pannumber" class="form-control" />
     </div>
     
     <!-- Submit button -->
     <button type="button" @click="signup()" class="btn btn-primary btn-block col-md-3 mb-4">Sign UP</button>
+
+    <p v-if="this.isInValid">
+             Please enter valid data.
+        </p> 
 
     </div>
     
@@ -63,14 +67,21 @@
       data() {
         return {
         userlogin: false,
-        usersignup: true
+        usersignup: true,
+        isInValid: false,
         }
       },
       methods: {
         signup()
         {
-            debugger
-          if(this.firstname != '' && this.lastname != '' && this.address != '' && this.pannumber != '')
+            
+          if(this.firstname == undefined || this.lastname == undefined || this.address == undefined || this.pannumber == undefined)
+          {
+            this.userlogin = false;
+            this.usersignup = true;
+            this.isInValid = true;
+          }
+          else if(this.firstname != '' && this.lastname != '' && this.address != '' && this.pannumber != '')
           {
             this.userlogin = true;
             this.usersignup = false;
