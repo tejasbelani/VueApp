@@ -1,7 +1,8 @@
 <script>
 import HelloWorldDemo from './components/HelloWorldDemo.vue';
-
 import AppSignUpVue from './components/AppSignUp.vue';
+import DisplayNameVue from './components/DisplayName.vue';
+import ProductsVue from './components/Products.vue';
 
 import {reactive} from 'vue'
 export default{
@@ -12,7 +13,9 @@ export default{
   },
   components:{
     HelloWorldDemo,
-    AppSignUpVue
+    AppSignUpVue,
+    DisplayNameVue,
+    ProductsVue
   },
   data() {
     return {
@@ -20,7 +23,8 @@ export default{
       users:[],
       info:45,
       theme:"lighttheme colorinfo",
-      splist:[]
+      splist:[],
+      txtname:""
     }
   },
   computed:{
@@ -43,6 +47,9 @@ export default{
       this.users[0].name="rahul";
       this.emp={};
     },
+    displaymsg() {
+            this.displaymsg = this.txtname;
+    },
     info1(data,abc)
     {
       this.splist=data;
@@ -54,21 +61,40 @@ export default{
 
 <template>
 
-
-
+<center>
+      <div>
+        <h1> Module 1 </h1>
+      </div>
+      <hr/>
+</center>
 
   <AppSignUpVue></AppSignUpVue>
 
-  
+  <hr/>
 
+  <center>
+
+      <div>
+        <h1> Module 2 </h1>
+      </div>
+      <hr/>
+
+      <input type="text" id="form2Example2" placeholder="Your Name" v-model="txtname" maxlength="20" class="form-control col-md-3" />
+      welcome {{ txtname }}
+      
+      <DisplayNameVue> </DisplayNameVue> 
+      
+      <ProductsVue> </ProductsVue>
+
+  </center>
  
 
 
 
 
-  <!-- Count{{ splist }} -->
 
- 
+
+  <!-- Count{{ splist }}  -->
 
   <!-- {{ info.count }} -->
 <!-- <HelloWorldDemo @notify="info1($event)" message="Good Morning" :data="users"></HelloWorldDemo>
@@ -78,7 +104,7 @@ export default{
   Enter Address <input type="text" v-model="emp.address"/>
 Active  <input type="radio" value="active" v-model="emp.status"/>
 InActive <input type="radio" value="inactive" v-model="emp.status"/>
-<button @click="demo()">Add employee</button> -->
+<button @click="demo()">Add employee</button>  -->
 
 </template>
 
