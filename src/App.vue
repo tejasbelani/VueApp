@@ -3,6 +3,8 @@ import HelloWorldDemo from './components/HelloWorldDemo.vue';
 import AppSignUpVue from './components/AppSignUp.vue';
 import DisplayNameVue from './components/DisplayName.vue';
 import ProductsVue from './components/Products.vue';
+import UserProfileVue from './components/UserProfile.vue';
+import StudentAdmissionVue from './components/StudentAdmission.vue';
 
 import {reactive} from 'vue'
 export default{
@@ -15,7 +17,9 @@ export default{
     HelloWorldDemo,
     AppSignUpVue,
     DisplayNameVue,
-    ProductsVue
+    ProductsVue,
+    UserProfileVue,
+    StudentAdmissionVue
   },
   data() {
     return {
@@ -89,8 +93,21 @@ export default{
   </center>
  
 
+  <center>
 
+    <hr/>
+        <div>
+          <h1> Module 3 </h1>
+        </div>
+    <hr/>
 
+    <UserProfileVue> </UserProfileVue>
+
+    
+
+</center>
+
+<StudentAdmissionVue> </StudentAdmissionVue>
 
 
 
